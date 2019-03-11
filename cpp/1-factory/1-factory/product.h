@@ -6,7 +6,7 @@
 class Product
 {
 public:
-    // ??????????????
+    // ?
     virtual ~Product() =0;//Pure virtual function in a subclass must override achieve
 protected:
     Product();

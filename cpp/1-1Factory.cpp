@@ -2,110 +2,75 @@
 using namespace std;
 
 
-class AbstractProductA
+//产品定义也使用了接口的形势,这样就可以派生出不同的产品种类
+class Product
 {
 public:
-    virtual ~AbstractProductA() 
+    virtual ~Product() =0 {};
+protected:
+    Product(){}
+private:
+};
+
+class ConcreteProduct:public Product
+{
+public:
+    ~ConcreteProduct(){}
+  
+    ConcreteProduct()
     {
-         cout<<"~AbstractProductA...."<<endl;
-    };
+         cout<<"ConcreteProduct...."<<endl;
+    }
 protected:
-    AbstractProductA() { cout<<"AbstractProductA...."<<endl;};
 private:
 };
-class AbstractProductB
+
+
+//希望达到的目的是,通过基类指针就能找到所有的方法,相当于构建了产品列表索引,想生产什么就生产什么
+class Factory
 {
 public:
-    virtual ~AbstractProductB(){ cout<<"~AbstractProductB...."<<endl;};
+    virtual ~Factory() = 0 {};
+    virtual Product* CreateProduct() = 0;
 protected:
-    AbstractProductB(){ cout<<"AbstractProductB...."<<endl;};
+    Factory(){}
 private:
 };
 
 
-
-class ProductA1:public AbstractProductA
+class ConcreteFactory:public Factory
 {
 public:
-    ProductA1(){ cout<<"ProductA1...."<<endl;};
-    ~ProductA1(){ cout<<"~ProductA1...."<<endl;};
+    ~ConcreteFactory()
+    {
+         cout<<"~ConcreteFactory....."<<endl;
+    }
+    ConcreteFactory()
+    {
+         cout<<"ConcreteFactory....."<<endl;
+    }
+    Product* CreateProduct()
+    {
+        return new ConcreteProduct();
+    }
 protected:
 private:
 };
-class ProductA2:public AbstractProductA
+
+
+class Base
 {
 public:
-    ProductA2(){cout<<"ProductA2...."<<endl;};
-    ~ProductA2(){cout<<"~ProductA2...."<<endl;};
-protected:
-private:
+    Base();
+    virtual ~Base() = 0 ;
 };
-class ProductB1:public AbstractProductB
+int main()
 {
-public:
-    ProductB1(){cout<<"ProductB1...."<<endl;};
-    ~ProductB1(){cout<<"~ProductB1...."<<endl;};
-protected:
-private:
-};
-class ProductB2:public AbstractProductB
-{
-public:
-    ProductB2(){cout<<"ProductB2...."<<endl;};
-    ~ProductB2(){cout<<"~ProductB2...."<<endl;};
-protected:
-private:
-};
+    Base b;
 
-
-class AbstractFactory
-{
-public:
-    virtual ~AbstractFactory() = 0 ;
-    virtual AbstractProductA* CreateProductA() = 0;
-    virtual AbstractProductB* CreateProductB() = 0;
-protected:
-    AbstractFactory(){cout<<"AbstractFactory...."<<endl;};
-private:
-};
-
-
-
-
-class ConcreteFactoryNick:public AbstractFactory
-{
-public:
-    ConcreteFactoryNick(){cout<<"ConcreteFactoryNick...."<<endl;};
-    ~ConcreteFactoryNick(){cout<<"~ConcreteFactoryNick...."<<endl;};
-    AbstractProductA* CreateProductA(){  return new ProductA2(); }
-    AbstractProductB* CreateProductB(){  return new ProductB2(); }
-protected:
-private:
-};
-
-
-
-class ConcreteFactoryAdidas:public AbstractFactory
-{
-public:
-    ConcreteFactoryAdidas(){cout<<"ConcreteFactoryAdidas...."<<endl;};
-    ~ConcreteFactoryAdidas(){cout<<"~ConcreteFactoryAdidas...."<<endl;};
-    AbstractProductA* CreateProductA(){ return new ProductA1();  };
-    AbstractProductB* CreateProductB(){ return new ProductB1();  };
-protected:
-private:
-};
-
-int main(int argc,char* argv[])
-{
-    AbstractFactory* cf1 = new ConcreteFactoryNick();
-    cf1->CreateProductA();
-    cf1->CreateProductB();
-    AbstractFactory* cf2 = new ConcreteFactoryAdidas();
-    cf2->CreateProductA();
-    cf2->CreateProductB();
-
-    delete cf1;
-    delete cf2;
+    // 产生多态
+    Factory* fac = new ConcreteFactory();
+    // 利用多态
+    Product* p = fac->CreateProduct();
     return 0;
 }

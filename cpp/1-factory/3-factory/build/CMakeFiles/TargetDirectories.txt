@@ -1,0 +1,3 @@
+/Users/hk/Documents/github/DesignPatterns/cpp/1-factory/3-factory/build/CMakeFiles/rebuild_cache.dir
+/Users/hk/Documents/github/DesignPatterns/cpp/1-factory/3-factory/build/CMakeFiles/edit_cache.dir
+/Users/hk/Documents/github/DesignPatterns/cpp/1-factory/3-factory/build/CMakeFiles/factory.dir

@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/hk/Documents/github/DesignPatterns/cpp/1-factory/3-factory/app.h
+iostream
+-
+vector
+-
+map
+-
+doc.h
+/Users/hk/Documents/github/DesignPatterns/cpp/1-factory/3-factory/doc.h
+
+/Users/hk/Documents/github/DesignPatterns/cpp/1-factory/3-factory/doc.h
+iostream
+-
+
+/Users/hk/Documents/github/DesignPatterns/cpp/1-factory/3-factory/main.cpp
+app.h
+/Users/hk/Documents/github/DesignPatterns/cpp/1-factory/3-factory/app.h
+doc.h
+/Users/hk/Documents/github/DesignPatterns/cpp/1-factory/3-factory/doc.h
+
+/Users/hk/Documents/github/DesignPatterns/cpp/1-factory/3-factory/myapp.cpp
+iostream
+-
+doc.h
+/Users/hk/Documents/github/DesignPatterns/cpp/1-factory/3-factory/doc.h
+app.h
+/Users/hk/Documents/github/DesignPatterns/cpp/1-factory/3-factory/app.h
+
+/Users/hk/Documents/github/DesignPatterns/cpp/1-factory/3-factory/mydoc.cpp
+doc.h
+/Users/hk/Documents/github/DesignPatterns/cpp/1-factory/3-factory/doc.h
+
