@@ -5,7 +5,10 @@ using namespace std;
 class AbstractProductA
 {
 public:
-    virtual ~AbstractProductA() { cout<<"~AbstractProductA...."<<endl;};
+    virtual ~AbstractProductA() 
+    {
+         cout<<"~AbstractProductA...."<<endl;
+    };
 protected:
     AbstractProductA() { cout<<"AbstractProductA...."<<endl;};
 private:
@@ -18,6 +21,9 @@ protected:
     AbstractProductB(){ cout<<"AbstractProductB...."<<endl;};
 private:
 };
+
+
+
 class ProductA1:public AbstractProductA
 {
 public:
@@ -55,13 +61,17 @@ private:
 class AbstractFactory
 {
 public:
-    virtual ~AbstractFactory() = 0 {cout<<"~AbstractFactory...."<<endl;};
+    virtual ~AbstractFactory() = 0 ;
     virtual AbstractProductA* CreateProductA() = 0;
     virtual AbstractProductB* CreateProductB() = 0;
 protected:
     AbstractFactory(){cout<<"AbstractFactory...."<<endl;};
 private:
 };
+
+
+
+
 class ConcreteFactoryNick:public AbstractFactory
 {
 public:
@@ -72,6 +82,9 @@ public:
 protected:
 private:
 };
+
+
+
 class ConcreteFactoryAdidas:public AbstractFactory
 {
 public:
