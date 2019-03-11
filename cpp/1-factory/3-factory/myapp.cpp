@@ -12,3 +12,7 @@ Doc *  myApp1::createDoc()
 {
     return  new mydoc1();
 };
+
+Doc*  yourApp::createDoc(){
+    return new yourdoc();
+}

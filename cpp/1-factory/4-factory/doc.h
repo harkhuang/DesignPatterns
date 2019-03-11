@@ -1,3 +1,10 @@
+
+
+#ifndef __DOC_H__
+#define __DOC_H__
+
+
+
 #include  <iostream>
 
 
@@ -15,3 +22,39 @@ class Doc{
     private:
     char * m_path;
 };
+
+
+
+
+class mydoc:public Doc{
+    public: 
+     // 不把这个写在这里的
+     // doc抽象的是单纯的数据基类   
+     // 单纯的继承关系  不做多的介绍
+    //Doc * create(){ return new mydoc();}
+    mydoc();
+    ~mydoc();
+};
+
+class mydoc1:public Doc{
+    public: 
+     // 不把这个写在这里的
+     // doc抽象的是单纯的数据基类   
+     // 单纯的继承关系  不做多的介绍
+    //Doc * create(){ return new mydoc();}
+    mydoc1();
+    ~mydoc1();
+};
+
+
+class yourdoc:public Doc{
+    public: 
+     // 不把这个写在这里的
+     // doc抽象的是单纯的数据基类   
+     // 单纯的继承关系  不做多的介绍
+    //Doc * create(){ return new mydoc();}
+    yourdoc();
+    ~yourdoc();
+};
+
+#endif // __DOC_H__
