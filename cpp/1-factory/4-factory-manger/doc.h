@@ -12,7 +12,9 @@
 // 这里 抽象模型类  可以是数据模型  也可以是业务模型
 class Doc{
     public:
-    //virtual Doc *create() = 0;
+    Doc(){};
+    Doc(char * path ){ memcpy(szPath, path, strlen(path));};
+    virtual Doc *create(){ return this;};
     virtual void  open(){};
     virtual void  read(){};
     virtual void  wirte(){};
@@ -20,7 +22,7 @@ class Doc{
     
     // 重点  必须创建
     private:
-    char * m_path;
+    char  szPath[100];
 };
 
 

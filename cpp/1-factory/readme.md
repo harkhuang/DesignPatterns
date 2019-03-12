@@ -1,5 +1,6 @@
 
-
+cmake -G "Xcode" .. 
+生成了xcode 工程 
 
 
 

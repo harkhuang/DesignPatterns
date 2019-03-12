@@ -11,8 +11,7 @@ class app{
     public:
     virtual Doc * createDoc() = 0;
     //void addDoc(std::string name);
-    private:
-    std::map<std::string ,Doc *> m_docs;
+
 };
 
 
@@ -21,7 +20,7 @@ class myApp:public app{
 public: 
     // 这里怎么调用 产品创建对引用呢  
     // 这里应该如何更好对衔接起来???
-    
+    // 使用聚合方式把相关的类型引入到接口中来
     Doc * createDoc();
     
 };
