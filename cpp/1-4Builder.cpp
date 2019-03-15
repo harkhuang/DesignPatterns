@@ -27,6 +27,8 @@ public:
 	virtual void BuildPartA(const string& buildPara) = 0;
 	virtual void BuildPartB(const string& buildPara) = 0;
 	virtual void BuildPartC(const string& buildPara) = 0;
+
+	// 重要
 	virtual Product* GetProduct() = 0;
 protected:
 	Builder()  { cout<<"Builder()"<<endl;};
