@@ -21,9 +21,10 @@ int main(int argc,char* argv[])
 	// 通过d构件复杂对象
 	d->Construct("a+","b+","a-");
 
-
-
 	// 表示对象 使用builder 表示复杂对象
+
+	cout<<"GetProduct() "<<endl;
 	b->GetProduct();
+
 	return 0;
 }
