@@ -93,10 +93,16 @@ ProductB2::~ProductB2()
 
 
 
+
+
+
 class AbstractFactory
 {
 public:
     virtual ~AbstractFactory();
+
+
+    ///******核心*******///
     virtual AbstractProductA* CreateProductA() = 0;
     virtual AbstractProductB* CreateProductB() = 0;
 protected:
@@ -108,6 +114,8 @@ class ConcreteFactoryNick:public AbstractFactory
 public:
     ConcreteFactoryNick();
     ~ConcreteFactoryNick();
+    
+    ///******核心*******///
     AbstractProductA* CreateProductA();
     AbstractProductB* CreateProductB();
 protected:
