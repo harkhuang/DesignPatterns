@@ -7,6 +7,8 @@ protected:
     Prototype();
 private:
 };
+
+
 class ConcretePrototype:public Prototype
 {
 

@@ -58,3 +58,23 @@ AbstractProductA* ConcreteFactory2::MakeProductB()
 
 
 
+AbstractProductA::AbstractProductA()
+{
+
+}
+
+AbstractProductA::~AbstractProductA()
+{
+
+}
+
+
+AbstractProductB::AbstractProductB()
+{
+
+}
+
+AbstractProductB::~AbstractProductB()
+{
+
+}
