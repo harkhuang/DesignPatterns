@@ -1,5 +1,5 @@
 ### 测试虚析构函数
-
+为什么 不多态就不会有
 
 Base *a = new Sub ; delete a;
  Concrete Base
