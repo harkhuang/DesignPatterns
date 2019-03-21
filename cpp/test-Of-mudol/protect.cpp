@@ -3,13 +3,17 @@ using namespace std;
 
 class Base
 {
-public:
+protected:
     Base(void)    {        cout<< " Concrete Base"<<endl;    }
     ~Base(void)    {        cout<< " Destructor Base"<<endl;    }
 protected:
     int m_a;
 public: 
     void func () {cout << m_a << endl;}
+
+    void func1 () {cout << private_int << endl;}
+
+    private: int  private_int ;
 };
 
 class Sub:public Base
@@ -17,21 +21,14 @@ class Sub:public Base
 public:
     Sub(void)    {        cout<< " Concrete Sub"<<endl;    }
     virtual ~Sub(void)    {        cout<< " Destructor Sub"<<endl;    }
-
-    protected: 
-    void func () { m_a = 300; cout << m_a << endl;}
-
+protected:
+    void func () { m_a = 300; cout << private_int << endl;}
 };
-
 
 int main()
 {
-    Base a;
-    //a.m_a = 100;   // error 不可以访问 类外 保护成员
-     a.func();
+ //   Base a;
 
-     Sub b;
-     b.func();
     getchar();
  }
 

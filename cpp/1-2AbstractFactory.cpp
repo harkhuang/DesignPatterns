@@ -2,6 +2,16 @@
 using namespace std;
 
 
+
+
+
+///  抽象的基类虽然多  
+// 不要被吓到, 因为构建逻辑很简单 
+// 产品 抽象 出N种
+// 工厂 抽象 出N种
+// 不同系列的产品 被不同的工厂使用 (比如我们把工厂产品按照高/中/底档去分配)
+
+
 class AbstractProductA
 {
 public:
@@ -96,17 +106,24 @@ ProductB2::~ProductB2()
 
 
 
+// 接口类构建技巧
+// 1  使用多态，析构函数必须是虚函数 
+// 2. 构造函数是保护成员，一个良好不可以被实例化的基类
+// 3  必须实现的成员函数 定义 = 0 
 class AbstractFactory
 {
 public:
     virtual ~AbstractFactory();
 
 
-    ///******核心*******///
+    ///******核心 多态*******///
+    // 延迟了创建方法到子类中去 ， 将真正创建产品 延迟到client 端具体调用
+    // 1.关联产品   2.子类实现构建具体产品（明确子类构建的具体产品      ）
+    // 3.多个不同的产品构建出的索引   ，这也是反向的构建出了工厂
     virtual AbstractProductA* CreateProductA() = 0;
     virtual AbstractProductB* CreateProductB() = 0;
 protected:
-    AbstractFactory();
+    AbstractFactory(); // 不允许直接构建这个基类 所以被定义为保护成员
 private:
 };
 class ConcreteFactoryNick:public AbstractFactory
@@ -115,7 +132,8 @@ public:
     ConcreteFactoryNick();
     ~ConcreteFactoryNick();
     
-    ///******核心*******///
+    ///******实现核心*******///
+    // 虚函数
     AbstractProductA* CreateProductA();
     AbstractProductB* CreateProductB();
 protected:

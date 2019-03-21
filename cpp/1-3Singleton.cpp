@@ -3,22 +3,23 @@
 using namespace std;
 
 
+
 class Singleton
 {
 public:
-	static Singleton* Instance();
+	static Singleton* GetInstance();
 protected:
-		 Singleton();
+		 Singleton();  // 不允许客户端直接实例化的类
 private:
-	static Singleton* _instance;
+	static Singleton* _instance;  // 不允许继承类调用的
 };
 
 
 Singleton::Singleton()
 {
-	cout<<"Singleton...."<<endl;
+	cout<<"Construct Singleton...."<<endl;
 }
-Singleton* Singleton::Instance()
+Singleton* Singleton::GetInstance()
 {
 	if (_instance == 0)
 	{
@@ -32,8 +33,8 @@ Singleton* Singleton::_instance = 0;
 
 int main(int argc,char* argv[])
 {
-	Singleton* sgn = Singleton::Instance();
+	Singleton* sgn = Singleton::GetInstance();
 
-	//Singleton* sgn11 = Singleton::Instance();
+	//Singleton* sgn11 = Singleton::GetInstance();
 	return 0;
 }
