@@ -21,7 +21,6 @@ class Base1
 {
 public:
     Base1(void)    {        cout<< " Concrete Base1"<<endl;    }
-
     // 使用多态 基类正确的打开方式
     virtual ~Base1(void)    {        cout<< " Destructor Base1"<<endl;    }
 };
@@ -43,12 +42,10 @@ int main()
     cout<<"Sub *b = new Sub ; delete b;"<<endl;
     Sub *b = new Sub ;
     delete b;
- 
     // 子类包含基类,同样包括 析构函数
     cout<<"Base *c = new VirtualSub ; delete c;"<<endl;
     Base1 *c = new Sub1 ;
     delete c;
-
     getchar();
  }
 
