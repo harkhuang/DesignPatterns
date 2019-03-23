@@ -3,26 +3,6 @@
 #include <iostream>
 using namespace std;
 
-AbstractProductA::AbstractProductA()
-{
-
-}
-
-AbstractProductA::~AbstractProductA()
-{
-
-}
-
-
-AbstractProductB::AbstractProductB()
-{
-
-}
-
-AbstractProductB::~AbstractProductB()
-{
-
-}
 
 ProductA1::ProductA1()
 {

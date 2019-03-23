@@ -26,12 +26,14 @@ class Builder
 {
 public:
 	virtual ~Builder() { cout<<"~Builder()"<<endl;};
+	
+    ///**********核心关键************///
+    ///1.基类中定义好 构建一系列的产品的关键信息 
 	virtual void BuildPartA(const string& buildPara) = 0;
 	virtual void BuildPartB(const string& buildPara) = 0;
 	virtual void BuildPartC(const string& buildPara) = 0;
-
-	// 重要
 	virtual Product* GetProduct() = 0;
+	
 protected:
 	Builder()  { cout<<"Builder()"<<endl;};
 private:
@@ -74,6 +76,7 @@ public:
 	~Director();
 
 	// 此处构造 是作为一个整体
+	// 组成关键的构建序列
 	void Construct(const string a,const string b,const string c){
 		_bld->BuildPartA(a);
 		_bld->BuildPartB(b);

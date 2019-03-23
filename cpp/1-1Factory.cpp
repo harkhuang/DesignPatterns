@@ -31,9 +31,12 @@ class Factory
 {
 public:
     virtual ~Factory() = 0 {};
+
+    ///**********核心关键************////
+    // 关联产品    /延迟构建
     virtual Product* CreateProduct() = 0;
 protected:
-    Factory(){}
+    Factory(){}; //
 private:
 };
 

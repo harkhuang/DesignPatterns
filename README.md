@@ -1,4 +1,2 @@
-# DesignPatterns
-设计模式全实现-23种
+# DesignPatterns in cpp/java/python
 
-# add python pattern design
