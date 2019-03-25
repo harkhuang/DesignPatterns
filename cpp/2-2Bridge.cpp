@@ -1,6 +1,9 @@
 #include <iostream>
 using namespace std;
 
+
+
+
 /*桥接  举例就是创建不同颜色形状不同的窗口*/
 
 //笔刷接口
@@ -41,7 +44,7 @@ public:
     };
     ~RefinedWindows(){
     };
-    void Operation(){
+    void Operation(){  
         _imp->Operation();
     };
 protected:
@@ -86,6 +89,8 @@ void Brush::Operation()
 }
 
 
+// 1）适配器：改变已有的两个接口，让他们相容。
+// 2）桥接模式：分离抽象化和实现，使两者的接口可以不同，目的是分离。
 //可以让一个手机选择性的拥有不同的软件
 int main(int argc,char* argv[])
 {

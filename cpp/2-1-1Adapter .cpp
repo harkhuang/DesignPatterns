@@ -1,5 +1,8 @@
 #include <iostream>
 using namespace std;
+
+
+// 目标  我们最终需要调用接口的样子
 class Target
 {
 public:
@@ -16,6 +19,8 @@ protected:
 private:
 };
 
+
+// 老接口 需要适配器
 class Adaptee
 {
 public:
@@ -33,7 +38,8 @@ protected:
 private:
 };
 
-//通过继承的方式绑定了适配器
+// 通过继承的方式绑定了适配器   (结构性)
+// 定义一个已经存在的接口，这个接口需要适配。
 class Adapter:public Target,private Adaptee
 {
 public:
@@ -62,4 +68,10 @@ int main(int argc,char* argv[])
     Target* adt = new Adapter();
     adt->Request();
     return 0;
+
+
+
+
+    // 通过多重继承 使得子类中拥有两个类的方法,将两个类接洽起来  
+    // 在子类中 自洽  两种父类的调用  这样 我们就可以通过
 }

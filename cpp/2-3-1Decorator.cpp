@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-// ³éÏó×é¼þ
+// æŠ½è±¡ç»„ä»¶ (é¥®æ–™)
 class Beverage
 {
 public:
@@ -24,14 +24,14 @@ public:
     string m_description;
 };
 
-// ³éÏó×°ÊÎÕß
+// æŠ½è±¡è£…é¥°è€…
 class CondimentDecorator : public Beverage
 {
 public:
     virtual string getDescription() = 0;
 };
 
-// ¾ßÌå×é¼þ£ºEspresso
+// å…·ä½“ç»„ä»¶ï¼šEspresso (æµ“å’–å•¡)
 class Espresso : public Beverage
 {
 public:
@@ -47,7 +47,7 @@ public:
     }
 };
 
-// ¾ßÌå×é¼þ£ºHouseBlend
+// å…·ä½“ç»„ä»¶ï¼šHouseBlend
 class HouseBlend : public Beverage
 {
 public:
@@ -62,7 +62,7 @@ public:
     }
 };
 
-// ¾ßÌå×é¼þ£ºDarkRoast
+// å…·ä½“ç»„ä»¶ï¼šDarkRoast
 class DarkRoast : public Beverage
 {
 public:
@@ -77,7 +77,7 @@ public:
     }
 };
 
-// ¾ßÌå×é¼þ£ºDecaf
+// å…·ä½“ç»„ä»¶ï¼šDecaf
 class Decaf : public Beverage
 {
 public:
@@ -92,7 +92,12 @@ public:
     }
 };
 
-// ¾ßÌå×°ÊÎÕß£ºMocha
+
+
+
+
+
+// å…·ä½“è£…é¥°è€…ï¼šMocha  (å¯æœ‰å¯æ— çš„ä¿®é¥°ç‰©)
 class Mocha : public CondimentDecorator
 {
 public:
@@ -115,7 +120,7 @@ private:
     Beverage *m_beverage;
 };
 
-// ¾ßÌå×°ÊÎÕß£ºMilk
+// å…·ä½“è£…é¥°è€…ï¼šMilk (å¯æœ‰å¯æ— çš„ä¿®é¥°ç‰©)  ä¼šå½±å“äº§å“å±žæ€§ æ”¹å˜äº§å“å…·ä½“æˆå‘˜
 class Milk : public CondimentDecorator
 {
 public:
@@ -138,7 +143,7 @@ private:
     Beverage *m_beverage;
 };
 
-// ¾ßÌå×°ÊÎÕß£ºSoy
+// å…·ä½“è£…é¥°è€…ï¼šSoy (å¯æœ‰å¯æ— çš„ä¿®é¥°ç‰©)
 class Soy : public CondimentDecorator
 {
 public:
@@ -161,7 +166,7 @@ private:
     Beverage *m_beverage;
 };
 
-// ¾ßÌå×°ÊÎÕß£ºWhip
+// å…·ä½“è£…é¥°è€…ï¼šWhip
 class Whip : public CondimentDecorator
 {
 public:
@@ -182,7 +187,6 @@ public:
     }
 private:
     Beverage *m_beverage;
-};
 
 
 int main(void)
@@ -190,12 +194,14 @@ int main(void)
     Beverage *p_beverage = new Espresso;
     p_beverage = new Mocha(p_beverage);
     p_beverage = new Milk(p_beverage);
-    p_beverage = new Soy(p_beverage);
+    p_beverage = new Soy(p_beverage); 
+
     p_beverage = new Whip(p_beverage);
+
+    // 
     p_beverage->getDescription();
     p_beverage->cost() ;
- //   cout << p_beverage->getDescription() << " " << p_beverage->cost() << 
-endl;
+    cout << p_beverage->getDescription() << " " << p_beverage->cost() << endl;
     return 0;
 }
 

@@ -17,7 +17,7 @@ protected:
 private:
 };
 
-//×°ÊÎÎïÆ·¾ßÌåÊµÏÖ  ¿ÉÒÔÀí½âÎª×°ÊÎÖĞµÄÒÂ·ş
+//è£…é¥°ç‰©å“å…·ä½“å®ç°  å¯ä»¥ç†è§£ä¸ºè£…é¥°ä¸­çš„è¡£æœ
 class ConcreteComponent:public Component
 {
 public:
@@ -35,7 +35,7 @@ private:
 };
 
 
-//×°ÊÎÎïÆ·¾ßÌåÊµÏÖ  ¿ÉÒÔÀí½âÎª×°ÊÎÖĞµÄ¿ã×Ó
+//è£…é¥°ç‰©å“å…·ä½“å®ç°  å¯ä»¥ç†è§£ä¸ºè£…é¥°ä¸­çš„è£¤å­
 class ConcreteComponent1:public Component
 {
 public:
@@ -67,7 +67,7 @@ public:
 	};
 protected:
 
-	//Õâ¸ö¾ÍÊÇ×°ÊÎÎïµÄ³éÏóÀà
+	//è¿™ä¸ªå°±æ˜¯è£…é¥°ç‰©çš„æŠ½è±¡ç±»
 	Component* _com;
 private:
 };
@@ -84,8 +84,8 @@ public:
 		cout<<"~ConcreteDecorator()"<<endl;
 	};
 	void Operation(){
-		_com->Operation();//Í¨¹ı³éÏóµÄ·½·¨È¥µ÷ÓÃ¾ßÌåµÄ×°ÊÎÎï
-		this->AddedBehavior();//Ê¹ÓÃ¸Ã×°ÊÎÎïµÄÌØĞÔ
+		_com->Operation();//é€šè¿‡æŠ½è±¡çš„æ–¹æ³•å»è°ƒç”¨å…·ä½“çš„è£…é¥°ç‰©
+		this->AddedBehavior();//ä½¿ç”¨è¯¥è£…é¥°ç‰©çš„ç‰¹æ€§
 	};
 	void AddedBehavior(){
 		std::cout<<"ConcreteDecorator::AddedBehavior()"<<std::endl;
@@ -97,12 +97,12 @@ private:
 int main(int argc,char* argv[])
 {
 
-	//Í¨¹ıConcreteComponentÀ´×°ÊÎ
+	//é€šè¿‡ConcreteComponentæ¥è£…é¥°
 	Component* com = new ConcreteComponent();
 	Decorator* dec = new ConcreteDecorator(com);
 	dec->Operation();
 
-	//Í¨¹ıConcreteComponent1À´×°ÊÎ
+	//é€šè¿‡ConcreteComponent1æ¥è£…é¥°
 	Component* com1 = new ConcreteComponent1();
 	dec = new ConcreteDecorator(com1);
 	dec->Operation();

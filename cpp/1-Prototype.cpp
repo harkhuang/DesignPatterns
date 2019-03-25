@@ -14,8 +14,10 @@ class ConcretePrototype:public Prototype
 
 public:
     ConcretePrototype();
-    ConcretePrototype(const ConcretePrototype& cp);
     ~ConcretePrototype();
+
+    ///**********核心关键************///
+    ConcretePrototype(const ConcretePrototype& cp);
     Prototype* Clone() const;
 protected:
 private:
