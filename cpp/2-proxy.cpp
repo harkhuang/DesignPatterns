@@ -6,7 +6,7 @@ class Subject
 public:
 	virtual ~Subject();
 
-	//ÇëÇó±ØĞëÈ¥ÊµÏÖ  ÕâÊÇÕæÕıÊ¹ÓÃ´úÀíµÄÄ¿µÄ
+	//è¯·æ±‚å¿…é¡»å»å®ç°  è¿™æ˜¯çœŸæ­£ä½¿ç”¨ä»£ç†çš„ç›®çš„
 	virtual void Request() = 0;
 protected:
 	
@@ -22,19 +22,22 @@ public:
 protected:
 private:
 };
+
+
+// æ­¤å¤„æ˜¯å¦ç»§æ‰¿ï¼Ÿ
 class Proxy
 {
 public:
 	Proxy();
 
-	//¸ù¾İÖ÷Ìâ¹¹½¨´úÀíÆ÷
+	//æ ¹æ®ä¸»é¢˜æ„å»ºä»£ç†å™¨
 	Proxy(Subject* sub);
 	~Proxy();
 	void Request();
 protected:
 private:
 
-	//´úÀíÆ÷×÷Îª³ÉÔ±±äÁ¿
+	//ä»£ç†å™¨ä½œä¸ºæˆå‘˜å˜é‡
 	Subject* _sub;
 };
 
@@ -74,11 +77,11 @@ void Proxy::Request()
 int main(int argc,char* argv[])
 {
 
-	//¹¹ÔìXX´úÀíÆ÷
+	//æ„é€ XXä»£ç†å™¨
 	Subject* sub = new ConcreteSubject();
-	//Í¨¹ıXX´úÀíÆ÷Éú³ÉÒ»¸ö´úÀí
+	//é€šè¿‡XXä»£ç†å™¨ç”Ÿæˆä¸€ä¸ªä»£ç†
 	Proxy* p = new Proxy(sub);
-	//ÏàÓ¦´úÀíµÄ²Ù×÷
+	//ç›¸åº”ä»£ç†çš„æ“ä½œ
 	p->Request();
 	return 0;
 }
