@@ -48,6 +48,7 @@ ConcretePrototype::ConcretePrototype(const ConcretePrototype& cp)
 }
 Prototype* ConcretePrototype::Clone() const
 {
+    // 完成一次拷贝构造 并不是
     return new ConcretePrototype(*this);
 }
 
@@ -57,5 +58,7 @@ int main(int argc,char* argv[])
 {
     Prototype* p = new ConcretePrototype();
     Prototype* p1 = p->Clone();
+
+    cout<<p<<"\n" <<p1<<endl;
     return 0;
 }
