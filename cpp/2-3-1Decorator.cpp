@@ -187,7 +187,7 @@ public:
     }
 private:
     Beverage *m_beverage;
-
+};
 
 int main(void)
 {
@@ -204,4 +204,3 @@ int main(void)
     cout << p_beverage->getDescription() << " " << p_beverage->cost() << endl;
     return 0;
 }
-
