@@ -44,7 +44,6 @@ int main()
   ColoredShape cc("red", &c);
   std::cout << cc.str() << std::endl;
   // cannot call this:
-  cc.resize(1.2); // not part of ColoredShape
-
+  c.resize(1.2); // not part of ColoredShape
   return 0;
 }
