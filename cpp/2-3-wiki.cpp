@@ -41,13 +41,19 @@ struct ColoredShape : Shape
 
 // usage:
 // g++ -std=c++11
+// 允许子类 组合类 灵活扩展和修改
+
+
+
 int main()
 {
   Circle c;
-  c.resize(1.2);
+
   
   ColoredShape cc("red", &c);
   // cc.resize(1.2); //  error  此处报错
+  std::cout << cc.str() << std::endl;
+  c.resize(1.2);
   std::cout << cc.str() << std::endl;
   // cannot call this:
   //cc.resize(1.2); // not part of ColoredShape  error
