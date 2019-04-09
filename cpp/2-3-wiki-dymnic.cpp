@@ -16,8 +16,9 @@ struct Circle
 };
 
 
-// 优雅的实现修饰类
-template <typename T> struct ColoredShape : T
+// 优雅的实现修饰类   继承  灵活 牛逼
+template <typename T> 
+struct ColoredShape : T
 {
     std::string color;
 
