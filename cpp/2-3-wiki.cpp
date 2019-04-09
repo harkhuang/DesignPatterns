@@ -3,6 +3,7 @@
 
 
 // 此处为什么用结构体 表示 类?? 优点在哪里?
+// struct   默认 public  
 struct Shape
 {
   virtual std::string str() = 0;
