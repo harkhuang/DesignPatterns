@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 
+
+// 此处为什么用结构体 表示 类?? 优点在哪里?
 struct Shape
 {
   virtual std::string str() = 0;
@@ -38,12 +40,18 @@ struct ColoredShape : Shape
 };
 
 // usage:
+// g++ -std=c++11
 int main()
 {
   Circle c;
+  c.resize(1.2);
+  
   ColoredShape cc("red", &c);
+  // cc.resize(1.2); //  error  此处报错
   std::cout << cc.str() << std::endl;
   // cannot call this:
-  c.resize(1.2); // not part of ColoredShape
+  //cc.resize(1.2); // not part of ColoredShape  error
   return 0;
 }
+
+
