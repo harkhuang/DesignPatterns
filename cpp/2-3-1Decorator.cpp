@@ -24,6 +24,7 @@ public:
     string m_description;
 };
 
+//////同级别修饰者
 // 抽象装饰者
 class CondimentDecorator : public Beverage
 {
@@ -92,9 +93,7 @@ public:
     }
 };
 
-
-
-
+//////同级别修饰者
 
 
 // 具体装饰者：Mocha  (可有可无的修饰物)
@@ -191,14 +190,19 @@ private:
 
 int main(void)
 {
-    Beverage *p_beverage = new Espresso;
-    p_beverage = new Mocha(p_beverage);
-    p_beverage = new Milk(p_beverage);
-    p_beverage = new Soy(p_beverage); 
 
+    // 饮料主类
+    Beverage *p_beverage = new Espresso;
+    // 装饰用 穆哈咖啡类型饮料 并且改变相应的价格
+    p_beverage = new Mocha(p_beverage);
+    // 装饰用 饮料中加入牛奶  并且改变相应的价格
+    p_beverage = new Milk(p_beverage);
+    // 装饰用 饮料中加入酱油 并且改变相应的价格
+    p_beverage = new Soy(p_beverage); 
+    // 装饰用 搅拌饮料  并且改变价格
     p_beverage = new Whip(p_beverage);
 
-    // 
+    // 获取被修饰后的
     p_beverage->getDescription();
     p_beverage->cost() ;
     cout << p_beverage->getDescription() << " " << p_beverage->cost() << endl;

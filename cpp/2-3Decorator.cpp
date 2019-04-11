@@ -96,10 +96,10 @@ private:
 
 int main(int argc,char* argv[])
 {
-
 	//通过ConcreteComponent来装饰
-	Component* com = new ConcreteComponent();
-	Decorator* dec = new ConcreteDecorator(com);
+	//Component n.  零件, 组成整件部分的单件; 构成要素; 成分
+	Component* com = new ConcreteComponent();  // 创建零件
+	Decorator* dec = new ConcreteDecorator(com);  // 用零件修饰基类
 	dec->Operation();
 
 	//通过ConcreteComponent1来装饰
