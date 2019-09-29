@@ -92,6 +92,12 @@ private:
 	Builder* _bld;
 };
 
+
+
+
+
+
+// 创建模式构建的对象重点在于构建出来的对象是一个整体 
 int main(int argc,char* argv[])
 {
 
