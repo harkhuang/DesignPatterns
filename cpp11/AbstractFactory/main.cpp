@@ -36,12 +36,19 @@ class Welder : public IDoorFittingExpert {
     }
 };
 
+
+
+// 超级抽象类=>包含了之前两个基类和超级基类(抽象工厂类)之间的关系 
+// 工厂类中需要两个抽象基类  
+// 用类模版传入类型 进行构造
 class IDoorFactory {
 public:
     virtual IDoor* MakeDoor() = 0;
     virtual IDoorFittingExpert* MakeFittingExpert() = 0;
 };
 
+
+// 模版用来传递对象类型 把抽象子类类型传递进来  真正的泛型编程
 template <typename Door, typename DoorFittingExpert>
 class DoorFactory : public IDoorFactory {
 public:
