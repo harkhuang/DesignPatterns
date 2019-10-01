@@ -102,10 +102,6 @@ ProductB2::~ProductB2()
 }
 
 
-
-
-
-
 // 接口类构建技巧
 // 1  使用多态，析构函数必须是虚函数 
 // 2. 构造函数是保护成员，一个良好不可以被实例化的基类
@@ -187,11 +183,14 @@ AbstractProductB* ConcreteFactoryAdidas::CreateProductB()
 
 int main(int argc,char* argv[])
 {
+
+    // 提供了更丰富自由的组合机制  
+    // 不过这个实践起来 很难想象到适合这样复杂构建模式的场景
     AbstractFactory* cf1 = new ConcreteFactoryNick();
-    cf1->CreateProductA();
-    cf1->CreateProductB();
+    cf1->CreateProductA();// 创建nike的鞋垫
+    cf1->CreateProductB();// 创建nike的鞋盒
     AbstractFactory* cf2 = new ConcreteFactoryAdidas();
-    cf2->CreateProductA();
-    cf2->CreateProductB();
+    cf2->CreateProductA();//创建阿迪的鞋带
+    cf2->CreateProductB();//创建阿迪的鞋盒
     return 0;
 }

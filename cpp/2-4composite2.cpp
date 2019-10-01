@@ -5,113 +5,53 @@
 
 using namespace std;  
 
+
+
+// 超类
 class Menu    
 {  
 public:  
-    virtual ~Menu();  
-
-    virtual void Add(Menu*);  
-    virtual void Remove(Menu*);  
-    virtual Menu* GetChild(int);  
+    virtual ~Menu()  {};  
+    virtual void Add(Menu*) {};  
+    virtual void Remove(Menu*) {};  
+    virtual Menu* GetChild(int) {};   
     virtual void Display() = 0;  
+
 protected:  
-    Menu();  
-    Menu(std::string);  
+    Menu() {};
+    Menu(std::string strName) : m_strName(strName) {  };
     std::string m_strName;  
-};  
+};
 
 
-
-Menu::Menu()  
-{  
-
-}  
-
-Menu::Menu(std::string strName) : m_strName(strName)  
-{  
-
-}  
-
-Menu::~Menu()  
-{  
-
-}  
-
-void Menu::Add(Menu* pMenu)  
-{}  
-
-void Menu::Remove(Menu* pMenu)  
-{}  
-
-Menu* Menu::GetChild(int index)  
-{  
-    return NULL;  
-}  
-
+// 第一个继承类   职责管理展示组合内容
 class SubMenu : public Menu    
 {  
 public:  
-    SubMenu();  
-    SubMenu(std::string);  
-    virtual ~SubMenu();  
-
-    void Display();  
+    SubMenu(){};  
+    SubMenu(std::string strName): Menu(strName)  {};  
+    virtual ~SubMenu() {};
+    void Display() {      cout << m_strName << endl;  }  ;  
 };  
 
 
-SubMenu::SubMenu()  
-{  
-
-}  
-
-SubMenu::SubMenu(string strName) : Menu(strName)  
-{  
-
-}  
-
-SubMenu::~SubMenu()  
-{  
-
-}  
-
-void SubMenu::Display()  
-{  
-    cout << m_strName << endl;  
-}  
-
-//CompositMenu.h  
-
-
+//第二个继承类  组合的组件   提供相同类型的组件的增删改查
 class CompositMenu : public Menu  
 {  
 public:  
     CompositMenu();  
-    CompositMenu(std::string);  
-    virtual ~CompositMenu();  
-
+    CompositMenu(std::string strName)  : Menu(strName) {};  
+    virtual ~CompositMenu()  {  }  ;  
+  ///  void test(int xx)   : m_myint(xx) {};   //error
     void Add(Menu*);  
     void Remove(Menu*);  
     Menu* GetChild(int);  
     void Display();  
 private:  
-    std::vector<Menu*> m_vMenu;  
+    std::vector<Menu*> m_vMenu;    // 这是一个超级组合类 能够融合多个
+    int m_myint;
 };  
 
-
-CompositMenu::CompositMenu()  
-{  
-
-}  
-
-CompositMenu::CompositMenu(string strName) : Menu(strName)  
-{  
-
-}  
-
-CompositMenu::~CompositMenu()  
-{  
-
-}  
 
 void CompositMenu::Add(Menu* pMenu)  
 {  
@@ -120,30 +60,13 @@ void CompositMenu::Add(Menu* pMenu)
 
 void CompositMenu::Remove(Menu* pMenu)  
 {  
-    //m_vMenu.erase(&pMenu); 
-
-
-    // 只找到一个
-    //for (vector<Menu *>::iterator it = m_vMenu.begin();it !=  m_vMenu.end();it++ )
-    //{
-    //    if(pMenu == *it)
-    //    {
-    //        m_vMenu.erase( it );
-    //        break;
-    //    }
-    //}
-
-
-
-    // 这里找到了多个
     vector<Menu *>::iterator it_back;
     for (vector<Menu *>::iterator it = m_vMenu.begin();it !=  m_vMenu.end();it++ )
     {
         if(pMenu == *it)
         {
             it = m_vMenu.erase( it );
-            it--;
-           
+            it--;           
         }
     }
 
@@ -156,6 +79,7 @@ Menu* CompositMenu::GetChild(int index)
 
 void CompositMenu::Display()  
 {  
+    //在展示层中体现了结构
     cout << "+" << m_strName << endl;  
     vector<Menu*>::iterator it = m_vMenu.begin();  
     for (; it != m_vMenu.end(); ++it)  
@@ -168,18 +92,13 @@ void CompositMenu::Display()
 
 int main(int argc, char* argv[])  
 {  
-    Menu* pMenu = new CompositMenu("国内新闻");  
+    Menu* pMenu = new CompositMenu("国内新闻");      
     pMenu->Add(new SubMenu("时事新闻"));  
     pMenu->Add(new SubMenu("社会新闻"));  
-
     Menu* yuleNode = new SubMenu("娱乐新闻");
+    yuleNode->Add(new SubMenu("狗仔队"));
     pMenu->Add(yuleNode);  
-    pMenu->Remove(yuleNode);
     pMenu->Display();
-    pMenu = new CompositMenu("国际新闻");  
-    pMenu->Add(new SubMenu("国际要闻"));  
-    pMenu->Add(new SubMenu("环球视野"));  
-    pMenu->Display();  
 
     return 0;  
 }  

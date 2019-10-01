@@ -19,6 +19,8 @@ Singleton::Singleton()
 {
 	cout<<"Construct Singleton...."<<endl;
 }
+
+
 Singleton* Singleton::GetInstance()
 {
 	if (_instance == 0)
@@ -27,10 +29,10 @@ Singleton* Singleton::GetInstance()
 	}
 	return _instance;
 }
+
+
+// 此处的变量必须初始化  这是一个全局的变量  
 Singleton* Singleton::_instance = 0;
-
-
-
 int main(int argc,char* argv[])
 {
 	Singleton* sgn = Singleton::GetInstance();
