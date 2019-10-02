@@ -21,6 +21,8 @@ private:
     bool tomato_ = false;
 };
 
+
+// 类中的类  写法特里独行
 class Burger::BurgerBuilder {
 public:
     BurgerBuilder(int size) { burger_ = new Burger(size); }
