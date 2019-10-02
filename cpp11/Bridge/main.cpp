@@ -1,10 +1,12 @@
 #include <iostream>
 #include <string>
 
+// 主题
 class ITheme {
 public:
     virtual std::string GetColor() = 0;
 };
+
 
 class DarkTheme : public ITheme {
 public:
@@ -21,6 +23,10 @@ public:
     std::string GetColor() override { return "Light blue"; }
 };
 
+
+
+
+
 class IWebPage {
 public:
     IWebPage(ITheme& theme) : theme_(theme) {}
@@ -28,6 +34,10 @@ public:
 protected:
     ITheme& theme_;
 };
+
+
+
+
 
 class About : public IWebPage {
 public:
@@ -39,6 +49,7 @@ public:
 
 class Careers : public IWebPage {
 public:
+    // 
     Careers(ITheme& theme) : IWebPage(theme) {}
     std::string GetContent() override {
         return "Careers page in " + theme_.GetColor();
