@@ -63,6 +63,10 @@ public:
     }
 };
 
+
+
+// 这里谁是桥呢?  - > 其实是抽象网页基类是桥    建立类网页和主题 关联关系  关联(关联)
+// 
 int main()
 {
     DarkTheme darkTheme;
