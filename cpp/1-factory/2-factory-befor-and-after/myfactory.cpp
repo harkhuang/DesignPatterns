@@ -13,18 +13,6 @@ class Product{
     virtual Product * createProduct();
 };
 
-class Base
-{
-  public:
-    Base(){};
-    ~Base(){};
-    virtual Base *makeProduct() = 0;
-  private:
-    vector <Product *> v_ps; // vps->write();  vps->read();
-};
-
-
-
 class ProductA: public Product{
     public: 
     
@@ -37,8 +25,24 @@ class ProductB: public Product{
 };
 
 
-int
-main()
+class IFactory
+{
+  public:
+    IFactory(){};
+    ~IFactory(){};
+    virtual Product *makeProduct() = 0;
+  private:
+    vector <Product *> v_ps; // vps->write();  vps->read();
+};
+
+class Factory :public IProduct
+{
+    public:
+    Product * createProductA(){ return new ProductA;}
+    Product * createProductB(){ return new ProductB;}
+}
+
+int main()
 {
     return 0;
 }
