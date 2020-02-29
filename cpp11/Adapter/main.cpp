@@ -49,8 +49,11 @@ class WildDogAdapter : public ILion {
 public:
     WildDogAdapter(WildDog& dog): dog_(dog) {}
 
+// 继承狮子抽象类  然后重写
+
+
     // 这里的override 表示抽象子类重写基类的roar函数
-    // 咆哮
+    // 重写咆哮方法   犬吠 = 咆哮(这知识业务处理的最简单的一种模拟  ,当然  犬吠可以做加工让他更想咆哮)
     void Roar() override {
         // 野狗适配器  当然要让野狗咆哮了
         // 但是没有咆哮方法  
