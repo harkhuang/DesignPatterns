@@ -23,6 +23,7 @@ protected:
     float balance_;
 };
 
+// 在构造函数中使用基类完成构造
 class Bank : public Account {
 public:  
     Bank(float balance) : Account(balance) {}
@@ -44,7 +45,7 @@ public:
 int main()
 {
     //! Let's prepare a chain like below:
-    //! bank -> paypal -> bitcoin
+    //! bank -> paypal -> bitcoin (责任链 顺序必须固定)
     //! First priority bank
     //!   If bank can't pay then paypal
     //!   If paypal can't pay then bit coin
