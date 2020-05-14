@@ -4,6 +4,8 @@
 
 class President {
 public:
+
+// 该子类线程安全
     static President& GetInstance() {
         static President instance;
         return instance;

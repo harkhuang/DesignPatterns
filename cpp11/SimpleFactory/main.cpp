@@ -21,6 +21,8 @@ class DoorFactory {
 public:
     static IDoor* MakeDoor(float width, float heigh)
     {
+        // 简单工厂 不具备通用型
+        // 每次添加新产品  需要在工厂类中添加相应的子类方法
         return new WoodenDoor(width, heigh);
     }
 };

@@ -26,6 +26,9 @@ class Default : public IWritingState {
     void Write(std::string words) override { std::cout << words << std::endl; }
 };
 
+
+// 封装前面的 状态修改
+// 整合抽象类之间的关系
 class TextEditor {
 public:
     TextEditor(const std::shared_ptr<IWritingState>& state): state_(state) {}
@@ -37,6 +40,7 @@ private:
 
 int main()
 {
+
   TextEditor editor(std::make_shared<Default>());
   editor.Type("First line");
 
