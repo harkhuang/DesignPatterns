@@ -47,17 +47,11 @@ class Welder : public IDoorFittingExpert {
 };
 
 
-<<<<<<< HEAD
-// 抽象门工厂  (海尔工厂 )  可以安装热水器电热的  也可以安装气热的热水器
-=======
 
-// 超级抽象类=>包含了之前两个基类和超级基类(抽象工厂类)之间的关系 
 // 工厂类中需要两个抽象基类  
 // 用类模版传入类型 进行构造
->>>>>>> a3b075724238660d83cd45cdebe29d391f4e8bb9
 class IDoorFactory {
 public:
-    virtual IDoor* MakeDoor() = 0;
     virtual IDoorFittingExpert* MakeFittingExpert() = 0;
 };
 
