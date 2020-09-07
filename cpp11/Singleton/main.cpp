@@ -5,7 +5,7 @@
 class President {
 public:
 
-// 该子类线程安全
+// c11 新特性  static成员 线程安全
     static President& GetInstance() {
         static President instance;
         return instance;
