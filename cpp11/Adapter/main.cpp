@@ -40,14 +40,13 @@ public:
 //! now we added a new class `WildDog`, the hunter can hunt it also.
 //! But we cannot do that directly because dog has a different interface.
 //! To make it compatible for our hunter, we will have to create an adapter.
-<<<<<<< HEAD
-=======
+
 
 // 现在我们添加一个新类野狗,这个猎人可以用它捕猎
 // 但是我们不可以直接捕获野狗,因为野狗接口不同
 // 使得野狗兼容猎人类
 
->>>>>>> a3b075724238660d83cd45cdebe29d391f4e8bb9
+
 class WildDogAdapter : public ILion {
 public:
     WildDogAdapter(WildDog& dog): dog_(dog) {}
