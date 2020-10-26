@@ -12,7 +12,7 @@ private:
 
 };
 
-
+// poliy
 class Strategy;
 /**
 *这个类是 Strategy 模式的关键，也是 Strategy 模式和 Template 模式的根本区别所在。
@@ -30,6 +30,7 @@ protected:
 private:
     Strategy* _stg;
 };
+
 class ConcreteStrategyA:public Strategy
 {
 public:
@@ -49,8 +50,7 @@ protected:
 private:
 };
 
-#include <iostream>
-using namespace std;
+
 Strategy::Strategy()
 {
 }
@@ -85,8 +85,6 @@ void ConcreteStrategyB::AlgrithmInterface()
     cout<<"test ConcreteStrategyB....."<<endl;
 }
 
-
-
 Context::Context(Strategy* stg)
 {
     _stg = stg;
@@ -101,7 +99,7 @@ void Context::DoAction()
     _stg->AlgrithmInterface();
 
 }
-using namespace std;
+
 int main(int argc,char* argv[])
 {
     Strategy* ps = new ConcreteStrategyA();
