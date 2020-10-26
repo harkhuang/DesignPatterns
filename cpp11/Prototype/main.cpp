@@ -4,6 +4,8 @@
 class Sheep {
 public:
     Sheep(const std::string& name, const std::string& category = "Mountain Sheep") : name_(name), category_(category) {}
+
+    // use set to proto
     void SetName(const std::string& name) { name_ = name; }
     void ShowInfo() { std::cout << name_ << " : " << category_ << std::endl; }
 private:
